@@ -1,24 +1,28 @@
 #include <stdio.h>
 
 /**
- * main - prints sum of even-valued fibonacci numbers under 4,000,000
- * Return: 0 if succesfull
+ * main - prints Fibonacci numbers under 4,000,000
+ * Return: 0 if successful
  */
-
 int main(void)
 {
-	long int i, a, b, sum;
+    long int a = 1;
+    long int b = 2;
+    long int c = 0;
+    
+    printf("%ld, %ld, ", a, b);
 
-	a = 1;
-	b = 2;
+    while (b < 4000000)
+    {
+        c = a + b;
+        printf("%ld, ", c);
 
-	for (i = 0, sum = 0; a < 4000000; i++)
-	{
-		if (!(a % 2))
-			sum += a;
-		b = a + b;
-		a = b - a;
-	}
-	printf("%ld\n", sum);
-	return (0);
+        a = b;
+        b = c;
+    }
+
+    printf("\n");
+
+    return 0;
 }
+
